@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 8.0.3'
 
+gem 'bcrypt'
 gem 'bootsnap', require: false
 gem 'cssbundling-rails'
 gem 'haml-rails'
@@ -9,6 +10,8 @@ gem 'jsbundling-rails'
 gem 'pg'
 gem 'propshaft'
 gem 'puma'
+gem 'simple_form'
+gem 'simple_form-tailwind'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 
