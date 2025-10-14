@@ -2,9 +2,12 @@
 
 .mt-5
   = simple_form_for @user, url: sign_in_path do |f|
+    = f.error_notification
+    = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
     = f.input :email
     = f.input :password
-    = f.button :submit
+    = f.button :submit, 'ログイン'
 
 .mt-5
   = link_to '新規登録はこちら', sign_up_path, class: 'text-blue-500 hover:underline'
