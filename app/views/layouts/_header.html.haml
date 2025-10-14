@@ -1,0 +1,10 @@
+%header.bg-white.shadow
+  %nav.container.mx-auto.px-4.py-4
+    .flex.items-center.justify-between
+      .flex.items-center
+        = link_to "CookShare", root_path, class: "text-xl font-bold text-gray-800"
+        = link_to "レシピ一覧", root_path, class: "ml-6 text-gray-600 hover:text-gray-800"
+      - if signed_in?
+        = button_to 'ログアウト', sign_out_path, method: :delete, data: { turbo_confirm: '本当にログアウトしますか？' }, class: 'bg-red-400 text-white px-4 py-2 rounded'
+      - else
+        = link_to 'ログイン', sign_in_path, class: 'bg-blue-500 text-white px-4 py-2 rounded'
