@@ -14,5 +14,7 @@
     %link{ href: '/icon.png', rel: 'apple-touch-icon' }/
     = stylesheet_link_tag :app, 'data-turbo-track': 'reload'
     = javascript_include_tag 'application', 'data-turbo-track': 'reload', type: 'module'
-  %body
-    = yield
+  %body.bg-amber-50
+    .container.mx-auto.p-5.bg-slate-50.min-h-screen
+      .mt-5
+        = yield
