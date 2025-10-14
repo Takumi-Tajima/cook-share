@@ -11,7 +11,6 @@ gem 'pg'
 gem 'propshaft'
 gem 'puma'
 gem 'simple_form'
-gem 'simple_form-tailwind'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 
