@@ -9,6 +9,7 @@
 
         = f.input :name
         = f.input :introduction, input_html: { rows: 5, class: 'textarea' }
+        = f.input :profile_image
 
         .card-actions.justify-between.mt-5
           = link_to 'キャンセル', users_introduction_path, class: 'btn btn-ghost'
