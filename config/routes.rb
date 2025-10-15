@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   namespace :users do
     resource :introduction, only: %i[show edit update]
+    resource :authentication, only: %i[edit update]
   end
 
   get 'up' => 'rails/health#show', as: :rails_health_check
