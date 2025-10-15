@@ -16,6 +16,6 @@ class Users::IntroductionsController < Users::ApplicationController
   private
 
   def user_introduction_params
-    params.expect(user: %i[introduction])
+    params.expect(user: %i[name introduction])
   end
 end
