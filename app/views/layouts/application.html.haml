@@ -16,7 +16,7 @@
     = javascript_include_tag 'application', 'data-turbo-track': 'reload', type: 'module'
   %body.bg-amber-50
     .container.mx-auto.p-5.bg-slate-50.min-h-screen.shadow
-      = render 'layouts/flash'
       = render 'layouts/header'
-      .mt-5.p-5
+      = render 'layouts/flash'
+      %main.mt-5.p-5
         = yield

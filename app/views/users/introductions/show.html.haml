@@ -1,0 +1,9 @@
+.mx-auto.max-w-6xl.p-4
+  .card.bg-base-100.shadow-sm
+    .card-body
+      %h1.card-title.text-xl= current_user.name
+      .opacity-70= current_user.email
+      .divider
+      .whitespace-pre-wrap.text-base= current_user.introduction
+      .card-actions.justify-end.mt-4
+        = link_to '編集', edit_users_introduction_path, class: 'btn btn-primary'
