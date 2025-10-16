@@ -13,6 +13,6 @@ class Users::AuthenticationsController < Users::ApplicationController
   private
 
   def user_authentication_params
-    params.expect(user: %i[email password current_password password password_confirmation])
+    params.expect(user: %i[email current_password password password_confirmation])
   end
 end

@@ -3,11 +3,11 @@ class User < ApplicationRecord
     ICON_SIZE: [100, 100],
   }.freeze
 
-  has_secure_password
-
   has_one_attached :profile_image do |attachable|
     attachable.variant :icon, resize_to_fit: PROFILE_IMAGE_INFORMATION[:ICON_SIZE]
   end
+
+  has_secure_password
 
   attr_accessor :current_password
 
@@ -17,24 +17,30 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :introduction, presence: true
   validates :password, length: { minimum: 8 }, allow_blank: true
-  validate :password_required_for_email_change, if: :email_changed?
-  validate :password_required_for_password_change, if: :password_digest_changed?
+
+  validate :verify_current_password_for_email_change, if: :email_changed?
+
+  # パスワード変更時: has_secure_passwordによってバリデーション前にpassword_digestが更新されるため、
+  # バリデーションではなくbefore_updateコールバックで現在のパスワードを検証する
+  before_update :verify_current_password_for_password_change, if: :password_digest_changed?
 
   private
 
-  def password_required_for_email_change
-    if current_password.blank?
-      errors.add(:current_password, 'メールアドレスを変更する場合は現在のパスワードが必要です')
-    elsif authenticate(current_password) == false
-      errors.add(:current_password, 'が正しくありません')
-    end
+  def verify_current_password_for_email_change
+    verify_current_password
   end
 
-  def password_required_for_password_change
+  def verify_current_password_for_password_change
+    verify_current_password
+  end
+
+  def verify_current_password
+    return if current_password.present? && authenticate(current_password)
+
     if current_password.blank?
-      errors.add(:password, 'を変更する場合は現在のパスワードが必要です')
-    elsif authenticate(current_password) == false
-      errors.add(:password, 'が正しくありません')
+      errors.add(:current_password, '変更には現在のパスワードが必要です')
+    else
+      errors.add(:current_password, 'が正しくありません')
     end
   end
 end
