@@ -3,6 +3,8 @@ class User < ApplicationRecord
     ICON_SIZE: [100, 100],
   }.freeze
 
+  has_many :recipes, dependent: :destroy
+
   has_one_attached :profile_image do |attachable|
     attachable.variant :icon, resize_to_fit: PROFILE_IMAGE_INFORMATION[:ICON_SIZE]
   end
