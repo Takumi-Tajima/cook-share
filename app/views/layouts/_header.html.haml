@@ -1,7 +1,7 @@
 %header.navbar.bg-base-100.shadow
   .navbar-start
     = link_to "CookShare", root_path, class: "btn btn-ghost text-xl"
-    = link_to "レシピ一覧", root_path, class: "btn btn-ghost"
+    = link_to "レシピ一覧", recipes_path, class: "btn btn-ghost"
   .navbar-end.gap-2
     - if signed_in?
       %details.dropdown.dropdown-end

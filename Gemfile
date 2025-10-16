@@ -5,6 +5,7 @@ gem 'rails', '~> 8.0.3'
 gem 'bcrypt'
 gem 'bootsnap', require: false
 gem 'cssbundling-rails'
+gem 'enumerize'
 gem 'haml-rails'
 gem 'jsbundling-rails'
 gem 'pg'

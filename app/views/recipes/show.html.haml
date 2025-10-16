@@ -1,0 +1,15 @@
+.card.bg-base-100.shadow-xl.max-w-2xl.mx-auto
+  .card-body
+    %h1.card-title.text-3xl= @recipe.title
+
+    .divider
+
+    %p.text-lg= @recipe.description
+
+    .grid.grid-cols-3.mt-4
+      %strong.text-sm カテゴリー:#{@recipe.category.name}
+      %strong.text-sm 調理時間:#{@recipe.cooking_time}分
+      %strong.text-sm 難易度:#{@recipe.difficulty_text}
+
+    .card-actions.justify-end.mt-6
+      = link_to '一覧に戻る', recipes_path, class: 'btn btn-outline'

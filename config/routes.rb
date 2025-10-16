@@ -7,9 +7,12 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
+  resources :recipes, only: %i[index show]
+
   namespace :users do
     resource :introduction, only: %i[show edit update]
     resource :authentication, only: %i[edit update]
+    resources :recipes, only: %i[index show new edit create update destroy]
   end
 
   get 'up' => 'rails/health#show', as: :rails_health_check

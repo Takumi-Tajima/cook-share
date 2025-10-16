@@ -1,0 +1,12 @@
+.grid.grid-cols-1.md:grid-cols-2.lg:grid-cols-3.gap-4
+  - @recipes.each do |recipe|
+    .card.bg-base-100.shadow-xl
+      .card-body
+        .card-title= recipe.title
+        %p= recipe.description
+        .text-sm.text-gray-600
+          %div カテゴリ: #{recipe.category.name}
+          %div 調理時間: #{recipe.cooking_time}分
+          %div 難易度: #{recipe.difficulty_text}
+        .card-actions.justify-end
+          = link_to '詳細', recipe_path(recipe), class: 'btn btn-primary btn-sm'
