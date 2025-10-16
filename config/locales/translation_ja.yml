@@ -17,6 +17,7 @@ ja:
         description: レシピ詳細
         cooking_time: 調理時間
         difficulty: 難易度
+        published: 公開ステータス
   enumerize:
     recipe:
       difficulty:

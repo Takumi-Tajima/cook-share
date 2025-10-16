@@ -1,4 +1,8 @@
 class Recipe < ApplicationRecord
+  extend Enumerize
+
+  enumerize :difficulty, in: %i[easy normal hard]
+
   belongs_to :user
   belongs_to :category
 
@@ -6,4 +10,7 @@ class Recipe < ApplicationRecord
   validates :description, presence: true
   validates :cooking_time, numericality: { only_integer: true, greater_than: 0 }
   validates :published, presence: true
+
+  scope :default_order, -> { order(:id) }
+  scope :published, -> { where(published: true) }
 end

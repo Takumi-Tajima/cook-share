@@ -1,0 +1,14 @@
+= simple_form_for [:users, recipe] do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  = f.input :title
+  = f.input :description, as: :text
+  = f.association :category
+  = f.input :cooking_time
+  = f.input :difficulty
+  = f.input :published
+
+  .card-actions.justify-between.mt-5
+    = link_to 'キャンセル', users_recipes_path, class: 'btn btn-ghost'
+    = f.button :submit, '保存', class: 'btn btn-primary'

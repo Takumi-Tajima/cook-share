@@ -4,6 +4,7 @@
     = link_to "レシピ一覧", recipes_path, class: "btn btn-ghost"
   .navbar-end.gap-2
     - if signed_in?
+      = link_to 'Myレシピ', users_recipes_path, class: "btn btn-ghost"
       %details.dropdown.dropdown-end
         %summary.btn= current_user.name
         %ul.menu.dropdown-content.bg-base-100.rounded-box.z-1.w-52.p-1.shadow-sm
