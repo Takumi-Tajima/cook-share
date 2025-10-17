@@ -2,6 +2,7 @@
   = f.error_notification
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
+  -# TODO: inputでselectの時にレイアウトが崩れている。initialize/simple_form.rb:158のlabelを消すと解消されるが謎。あとで対応する
   = f.input :title
   = f.input :description, as: :text
   = f.association :category
