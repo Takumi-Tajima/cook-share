@@ -12,7 +12,6 @@ class Recipe < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
   validates :cooking_time, numericality: { only_integer: true, greater_than: 0 }
-  validates :published, presence: true
 
   scope :default_order, -> { order(:id) }
   scope :published, -> { where(published: true) }
