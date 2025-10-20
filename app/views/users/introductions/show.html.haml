@@ -1,0 +1,15 @@
+.mx-auto.max-w-6xl.p-4
+  .card.bg-base-100.shadow-sm
+    .card-body
+      .flex.gap-6.mb-6
+        .avatar
+          -# TODO: 画像表示されてない
+          .w-24.rounded-full.ring.ring-primary
+            = icon_image_tag(current_user)
+        %div
+          %h1.text-2xl.font-bold= current_user.name
+          .text-sm.opacity-70.mt-1= current_user.email
+      .divider
+      .whitespace-pre-wrap= current_user.introduction
+      .text-right.mt-4
+        = link_to '編集', edit_users_introduction_path, class: 'btn btn-primary'

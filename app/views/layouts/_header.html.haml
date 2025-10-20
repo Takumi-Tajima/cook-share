@@ -1,0 +1,15 @@
+%header.navbar.bg-base-100.shadow
+  .navbar-start
+    = link_to "CookShare", root_path, class: "btn btn-ghost text-xl"
+    = link_to "レシピ一覧", recipes_path, class: "btn btn-ghost"
+  .navbar-end.gap-2
+    - if signed_in?
+      = link_to 'Myレシピ', users_recipes_path, class: "btn btn-ghost"
+      %details.dropdown.dropdown-end
+        %summary.btn= current_user.name
+        %ul.menu.dropdown-content.bg-base-100.rounded-box.z-1.w-52.p-1.shadow-sm
+          %li= link_to 'プロフィール', users_introduction_path
+          %li= link_to 'アカウント', edit_users_authentication_path
+          %li= button_to 'ログアウト', sign_out_path, method: :delete, data: { turbo_confirm: '本当にログアウトしますか?' }
+    - else
+      = link_to 'ログイン', sign_in_path, class: 'btn btn-primary'

@@ -1,0 +1,26 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        current_password: 現在のパスワード
+        password: パスワード
+        password_confirmation: パスワード（確認用）
+        introduction: 自己紹介
+        profile_image: プロフィール画像
+      recipe:
+        category: カテゴリー
+        title: レシピ名
+        description: レシピ詳細
+        cooking_time: 調理時間
+        difficulty: 難易度
+        published: 公開ステータス
+  enumerize:
+    recipe:
+      difficulty:
+        easy: 簡単
+        normal: 普通
+        hard: 難しい
